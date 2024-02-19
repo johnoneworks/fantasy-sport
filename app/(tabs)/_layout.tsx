@@ -27,6 +27,13 @@ export default function TabLayout() {
         headerShown: useClientOnlyValue(false, true),
       }}>
       <Tabs.Screen
+        name="youtube-tutorial"
+        options={{
+          title: 'Tab Youtube Tutorial',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <Tabs.Screen
         name="index"
         options={{
           title: 'Tab One',
@@ -54,6 +61,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
+      
     </Tabs>
   );
 }
