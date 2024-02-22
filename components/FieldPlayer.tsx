@@ -2,7 +2,14 @@ import React from "react";
 import { Text, View } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-export function FieldPlayer({ position, player }: { position: string, player: null | string }) {
+type FieldPlayerProps = {
+    player: null;
+    position: string;
+};
+
+export function FieldPlayer(props: FieldPlayerProps) {
+    const { player, position } = props;
+
     return (
         <View style={{ alignItems: "center" }}>
             <FontAwesome5 
