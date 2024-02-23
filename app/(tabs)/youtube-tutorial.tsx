@@ -1,13 +1,19 @@
-import { StyleSheet, SafeAreaView, Pressable, Text } from 'react-native';
+import React, { useRef } from 'react';
+import { StyleSheet, SafeAreaView, Pressable, Text, View } from 'react-native';
+import BottomSheet from '@gorhom/bottom-sheet';
 
 import { Field } from '@/components/Field'; 
 import { TeamStats } from '@/components/TeamStats';
 
-export default function TabYoutubeTutorial
-() {
+
+export default function TabYoutubeTutorial() {
+  const playersBottomSheet = useRef<BottomSheet>(null);
+
   const viewPlayers = () => {
-    console.warn('View players');
+    playersBottomSheet.current?.expand();
   };
+
+  const snapPoints = ["50%", "70%"];
 
   return (
     <SafeAreaView style={styles.container}>
@@ -19,6 +25,17 @@ export default function TabYoutubeTutorial
       >
         <Text>View players</Text>
       </Pressable>
+
+      <BottomSheet
+        index={0}
+        snapPoints={snapPoints}
+        enablePanDownToClose={true}
+        ref={playersBottomSheet}
+      >
+        <View style={styles.contentContainer}>
+          <Text>Awesome 🎉</Text>
+        </View>
+      </BottomSheet>
     </SafeAreaView>
   );
 }
@@ -37,5 +54,8 @@ const styles = StyleSheet.create({
     alignItems: "center", 
     borderRadius: 50,
     marginTop: "auto",
+  },
+  contentContainer: {
+
   },
 });
