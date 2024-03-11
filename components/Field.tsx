@@ -33,6 +33,7 @@ export function Field() {
               justifyContent: "space-around", 
               width: "100%" 
             }}
+            key={players.id}
           >
             {players[position].map((player) => (
               <FieldPlayer position={position} player={player} />

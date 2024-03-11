@@ -1,12 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useRef, useMemo } from 'react';
 import { StyleSheet, SafeAreaView, Pressable, Text, View } from 'react-native';
-import BottomSheet from '@gorhom/bottom-sheet';
+import BottomSheet, { BottomSheetFlatList } from '@gorhom/bottom-sheet';
 
 import { Field } from '@/components/Field'; 
 import { TeamStats } from '@/components/TeamStats';
+import { PlayerListItem } from '@/components/PlayerListItem';
+import { players } from "@/assets/data/players";
 
 
-export default function TabYoutubeTutorial() {
+
+export default function UEFAClone() {
   const playersBottomSheet = useRef<BottomSheet>(null);
 
   const viewPlayers = () => {
@@ -33,7 +36,14 @@ export default function TabYoutubeTutorial() {
         ref={playersBottomSheet}
       >
         <View style={styles.contentContainer}>
-          <Text>Awesome 🎉</Text>
+          {/*
+          <BottomSheetFlatList
+            data={players}
+            keyExtractor={(i) => i}
+            renderItem={renderItem}
+          />
+  */}
+          {<PlayerListItem player={players[0]} />}
         </View>
       </BottomSheet>
     </SafeAreaView>

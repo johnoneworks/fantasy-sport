@@ -28,13 +28,7 @@ export default function TabLayout() {
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
       }}>
-      <Tabs.Screen
-        name="youtube-tutorial"
-        options={{
-          title: 'Tab Youtube Tutorial',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
+      
       <Tabs.Screen
         name="index"
         options={{
@@ -56,13 +50,15 @@ export default function TabLayout() {
           ),
         }}
       />
+
       <Tabs.Screen
-        name="two"
+        name="uefa-clone"
         options={{
-          title: 'Tab Two',
+          title: 'UEFA Clone',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
+
       
     </Tabs>
     </GestureHandlerRootView>
