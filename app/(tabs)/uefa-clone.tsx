@@ -18,6 +18,30 @@ export default function UEFAClone() {
 
   const snapPoints = ["50%", "70%"];
 
+  // variables
+  const data = useMemo(
+    () =>
+      Array(50)
+        .fill(0)
+        .map((_, index) => `index-${index}`),
+    []
+  );
+
+  // render
+  const renderItem = useCallback(
+    ({ item } : {item: any}) => (
+      /*
+      <View style={styles.container}>
+        <Text>{item}</Text>
+      </View>
+      */
+      
+      <PlayerListItem player={item} />
+      
+    ), 
+    []
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <TeamStats />
@@ -35,17 +59,15 @@ export default function UEFAClone() {
         enablePanDownToClose={true}
         ref={playersBottomSheet}
       >
-        <View style={styles.contentContainer}>
-          {/*
-          <BottomSheetFlatList
+        <BottomSheetFlatList
             data={players}
-            keyExtractor={(i) => i}
+            //data={data}
+            keyExtractor={(i) => i.id}
             renderItem={renderItem}
+            contentContainerStyle={styles.contentContainer}
           />
-  */}
-          {<PlayerListItem player={players[0]} />}
-        </View>
-      </BottomSheet>
+          {/*<PlayerListItem player={players[0]} />*/}
+        </BottomSheet>
     </SafeAreaView>
   );
 }
